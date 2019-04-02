@@ -46,7 +46,7 @@ def splitCSV():
 	ftrCount = 0 
 	ftrString = strFTR.get().split()
 	
-	
+	#count the amount of bills within data file.
 	with open(filePath.get()) as f:
 		     
 		for lineStr in f:              
@@ -85,15 +85,11 @@ def splitCSV():
 							writer = csv.writer(file)
 							mylist.append(row)
 		
-							if(row[0]==strFTR.get()):
-								
-								
-								if(count>=recordsPerFile):
-		
+							if(row[0]==strFTR.get()):																
+								if(count>=recordsPerFile):		
 									count=0
 									break				
-								else:	
-									
+								else:										
 									if(ftrCounter!=ftrCount):
 										writer.writerows(mylist)
 										count+=1
@@ -108,7 +104,7 @@ def splitCSV():
 		        
 		        		
 	file.close()	
-# create button to split file
+# create button to call split file
 splitBtn = Button(root, text="Split", command=lambda: splitCSV())
 splitBtn.pack()
 
